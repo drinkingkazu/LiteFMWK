@@ -9,7 +9,7 @@ OSNAMEMODE      = $(OSNAME)
 
 include $(MYSW_BASEDIR)/Makefile/Makefile.${OSNAME}
 
-SUBDIRS := Kazu Example
+SUBDIRS :=
 
 .phony: all clean
 
