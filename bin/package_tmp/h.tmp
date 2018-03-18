@@ -14,23 +14,25 @@
 #ifndef PACKAGE_NAME_SAMPLE_H
 #define PACKAGE_NAME_SAMPLE_H
 
+namespace Package_Name {
+
 /**
    \class sample
    User defined class Package_Name ... these comments are used to generate
    doxygen documentation!
- */
-class sample{
+*/
+  class sample{
 
-public:
+  public:
 
-  /// Default constructor
-  sample(){}
+    /// Default constructor
+    sample(){}
 
-  /// Default destructor
-  virtual ~sample(){};
+    /// Default destructor
+    virtual ~sample(){};
 
-};
-
+  };
+}
 #endif
 /** @} */ // end of doxygen group 
 

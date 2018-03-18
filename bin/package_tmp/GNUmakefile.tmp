@@ -1,14 +1,12 @@
 #
 # This is an example GNUmakefile for my packages
 #
+NAME = Package_Name
 
 # specific names for this package
-DICT  = Package_NameDict
-SHLIB = libLiteFramework_Package_Name.so
-SOURCES = $(filter-out $(DICT).cxx, $(wildcard *.cxx))
-FMWK_HEADERS = LinkDef.h $(DICT).h
+SOURCES = $(wildcard *.cxx)
+FMWK_HEADERS = LinkDef.h
 HEADERS = $(filter-out $(FMWK_HEADERS), $(wildcard *.h))
-OBJECTS = $(SOURCES:.cxx=.o)
 
 # include options for this package
 INCFLAGS  = -I.                       #Include itself
