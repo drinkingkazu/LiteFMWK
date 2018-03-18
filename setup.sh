@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # clean up previously set env
-if [[ -z $FORCE_MYSW_BASEDIR ]]; then
+if [[ -z $FORCE_MYSW_DIR ]]; then
     where="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-    export MYSW_BASEDIR=${where}
+    export MYSW_DIR=${where}
 else
-    export MYSW_BASEDIR=$FORCE_MYSW_BASEDIR
+    export MYSW_DIR=$FORCE_MYSW_DIR
 fi
-export MYSW_BINDIR=$MYSW_BASEDIR/bin
+export MYSW_BINDIR=$MYSW_DIR/bin
 
 # set the build dir
 unset MYSW_BUILDDIR
 if [[ -z $MYSW_BUILDDIR ]]; then
-    export MYSW_BUILDDIR=$MYSW_BASEDIR/build
+    export MYSW_BUILDDIR=$MYSW_DIR/build
 fi
 export MYSW_LIBDIR=$MYSW_BUILDDIR/lib
 export MYSW_INCDIR=$MYSW_BUILDDIR/include
@@ -33,7 +33,7 @@ else
 fi
 
 # Check Numpy
-export MYSW_NUMPY=`$MYSW_BASEDIR/bin/check_numpy`
+export MYSW_NUMPY=`$MYSW_DIR/bin/check_numpy`
 
 # warning for missing support
 missing=""
@@ -55,7 +55,7 @@ printf "    \033[95mMYSW_BUILDDIR\033[00m = $MYSW_BUILDDIR\n"
 export PATH=$MYSW_BINDIR:$PATH
 export LD_LIBRARY_PATH=$MYSW_LIBDIR:$LD_LIBRARY_PATH
 export DYLD_LIBRARY_PATH=$MYSW_LIBDIR:$DYLD_LIBRARY_PATH
-export PYTHONPATH=$MYSW_BASEDIR/python:$PYTHONPATH
+export PYTHONPATH=$MYSW_DIR/python:$PYTHONPATH
 
 export MYSW_CXX=clang++
 if [ -z `command -v $MYSW_CXX` ]; then
