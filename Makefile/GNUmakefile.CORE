@@ -30,7 +30,7 @@ $(PACKAGE_BUILDDIR)/%.o: %.cxx %.h
 
 $(DICT).o: $(DICT).cxx
 	@echo '<< compiling' $(NAME)Dict.cxx '>>'
-	@$(CXX) $(CXXFLAGS) $(MYSW_BASIC_ROOTINC) $(INCFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) $(MYSW_BASIC_ROOTINC) $(INCFLAGS) -DMYSW_NUMPY=$(MYSW_NUMPY) -c $< -o $@
 		 
 # root class dictionary
 $(DICT).cxx: $(HEADERS) LinkDef.h

@@ -34,6 +34,7 @@ for src in src_list.keys():
    contents=contents.replace('Empty_Class_Name',name)
    contents=contents.replace('Shell_User_Name',os.environ['USER'])
    contents=contents.replace('Working_Package',working_package)
+   contents=contents.replace('WORKING_PACKAGE',working_package.upper())
    fout=open(src_list[src],'w')
    fout.write(contents)
    fout.close()
@@ -44,7 +45,7 @@ fout=open('%s/LinkDef.h' % target_dir,'w')
 for line in contents:
    line=line + '\n'
    if line.find('ADD_NEW_CLASS')>=0:
-      line='#pragma link C++ class %s+;\n%s' % (name,line)
+      line='#pragma link C++ class %s::%s+;\n%s' % (name,working_package,line)
    fout.write(line)
 
 print
