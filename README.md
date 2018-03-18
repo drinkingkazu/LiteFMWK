@@ -43,6 +43,9 @@ You can find an example in this branch:
 git checkout example
 ```
 
+## Compiling multiple packages
+No one wants to `cd` package directory and `make` for every package. You can utilize the top level `GNUmakefile` which is extremely simple and hopefully self-descriptive. All you need to do is to list (space-separated) packages in `SUBDIRS` variable.
+
 ## Excluding a class from dictionary generation
 Sometimes you don't want to expose your C++ class to an interpreter.
 Assuming your C++ class is already registered in the dictionary (a mechanism to make your class available in an interpreter), simply exclude it from `LinkDef.h`.
