@@ -18,11 +18,6 @@ source_dir='%s/bin/package_tmp' % os.environ['MYSW_DIR']
 if not os.path.exists(target_dir):
    try:
       os.makedirs(target_dir)
-      os.makedirs('%s/bin' % target_dir)
-      os.makedirs('%s/mac' % target_dir)
-      #os.makedirs('%s/lib' % target_dir)
-      # Copy analysis code generator
-      os.system("scp -r %s/bin/tmp %s/bin/" % (source_dir,target_dir))
 
    except OSError:
       sys.stderr.write('Failed to create a dir: %s\n' % target_dir)
@@ -37,23 +32,11 @@ in_makefile='%s/GNUmakefile.tmp' % source_dir
 in_linkdef='%s/LinkDef.tmp' % source_dir
 in_source='%s/cxx.tmp' % source_dir
 in_header='%s/h.tmp' % source_dir
-#in_rootmap='%s/lib/gen_rootmap.sh' % source_dir
-in_bin_makefile='%s/bin/GNUmakefile.tmp' % source_dir
-in_bin_source='%s/bin/example.tmp' % source_dir
-in_mac_example='%s/mac/example.py' % source_dir
-in_mac_example_anaunit='%s/mac/example_anaunit.py' % source_dir
-in_mac_example_ertool='%s/mac/example_ertool.py' % source_dir
 
 src_list = { in_makefile : '%s/GNUmakefile'   % target_dir,
              in_linkdef  : '%s/LinkDef.h'     % target_dir,
              in_source   : '%s/sample.cxx'         % target_dir,
-             in_header   : '%s/sample.h'         % target_dir,
-             #in_rootmap  : '%s/lib/gen_rootmap.sh' % target_dir,
-             in_bin_makefile   : '%s/bin/GNUmakefile' % target_dir,
-             in_bin_source     : '%s/bin/example.cc'  % target_dir,
-             in_mac_example    : '%s/mac/example.py'  % target_dir,
-             in_mac_example_anaunit : '%s/mac/example_anaunit.py'  % target_dir,
-             in_mac_example_ertool  : '%s/mac/example_ertool.py'  % target_dir }
+             in_header   : '%s/sample.h'         % target_dir}
 
 for src in src_list.keys():
    contents=open(src,'r').read()
