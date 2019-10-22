@@ -1,13 +1,13 @@
 
-ifndef MYSW_BASEDIR
-ERROR_MESSAGE := $(error MYSW_BASEDIR is not set... run configure.sh!)
+ifndef MYSW_DIR
+ERROR_MESSAGE := $(error MYSW_DIR is not set... run configure.sh!)
 endif
 
 OSNAME          = $(shell uname -s)
 HOST            = $(shell uname -n)
 OSNAMEMODE      = $(OSNAME)
 
-include $(MYSW_BASEDIR)/Makefile/Makefile.${OSNAME}
+include $(MYSW_DIR)/Makefile/Makefile.${OSNAME}
 
 SUBDIRS :=
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys, os
 name=''
 if len(sys.argv)>1: name = sys.argv[1]
@@ -50,14 +50,12 @@ for src in src_list.keys():
 
 #os.system('chmod 774 %s/lib/gen_rootmap.sh' % target_dir)
 
-print
-print 'Generated the followings under %s.' % target_dir
+print('\nGenerated the followings under %s.' % target_dir)
 for key in src_list.keys():
-   print '    %s' % src_list[key]
-print
-print 'To compile your program, try:'
-print '    > make --directory=%s' % target_dir
-print ' OR'
-print '    > cd %s; make;' % target_dir
-print
+   print('    %s' % src_list[key])
+print('\nTo compile your program, try:')
+print('    > make --directory=%s' % target_dir)
+print(' OR')
+print('    > cd %s; make;' % target_dir)
+
 sys.exit(0)

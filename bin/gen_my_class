@@ -48,24 +48,17 @@ for line in contents:
       line='#pragma link C++ class %s::%s+;\n%s' % (name,working_package,line)
    fout.write(line)
 
-print
-print 'Generated the followings under %s.' % target_dir
+print('\nGenerated the followings under %s.' % target_dir)
 for key in src_list.keys():
-   print '    %s' % src_list[key]
-print
-print 'To compile your program, try:'
-print '    > make --directory=%s' % target_dir
-print ' OR'
-print '    > cd %s; make;' % target_dir
-print
-print 'To remove your empty class code, you should remove:'
-print '%s/%s.h' % (target_dir,name)
-print '%s/%s.cxx' % (target_dir,name)
-print
-print 'Finally remove #pragma statement for your class from'
-print '%s/LinkDef.h' % target_dir
-print
-print 'I let you go now :)'
-print
-print
+   print('    %s' % src_list[key])
+print('\nTo compile your program, try:')
+print('    > make --directory=%s' % target_dir)
+print(' OR')
+print('    > cd %s; make;' % target_dir)
+print('\nTo remove your empty class code, you should remove:')
+print('%s/%s.h' % (target_dir,name))
+print('%s/%s.cxx' % (target_dir,name))
+print('\nFinally remove #pragma statement for your class from')
+print('%s/LinkDef.h' % target_dir)
+print('\nI let you go now :)\n')
 sys.exit(0)
