@@ -45,7 +45,7 @@ fout=open('%s/LinkDef.h' % target_dir,'w')
 for line in contents:
    line=line + '\n'
    if line.find('ADD_NEW_CLASS')>=0:
-      line='#pragma link C++ class %s::%s+;\n%s' % (name,working_package,line)
+      line='#pragma link C++ class %s::%s+;\n%s' % (working_package,name,line)
    fout.write(line)
 
 print('\nGenerated the followings under %s.' % target_dir)
